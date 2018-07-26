@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Chat App using Node Mongo and SocketIO</title>
+		<link rel="stylesheet" href="/stylesheets/bootstrap.min.css"  type="text/css">
+		<link rel="stylesheet" href="/stylesheets/font-awesome.min.css"  type="text/css">
+		<link rel="stylesheet" href="/stylesheets/style.css"  type="text/css">
+		<style>
+			body { padding-top:80px; word-wrap:break-word; }
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="text-center">
+				<h1><span class="fa fa-comment"></span> Chat Box</h1>
+				<h6><span class="fa fa-user"></span> <strong>username</strong>: <%= user.username %></h6>
+				<a href="/logout" class="btn btn-default btn-sm fa fa-power-off" style="margin-bottom: 10px;"> Logout</a>
+			</div>
+			<div class="row">
+				<div class="col-sm-9">
+					<div class="well innerbox">
+						<div id="messages"></div>
+					</div>
+				</div>
+				<div class="col-sm-3 text-center">
+					<div class="well innerbox">
+						<h3><span class="fa fa-users"></span></h3>
+						<div class="custom-div">
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-9">
+					<div class="well formbox">
+						<form action="">
+							<input id="m" autocomplete="off" /> <button>Send</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="/javascripts/socket.io.js"></script>
+		<script src="/javascripts/jquery-1.11.1.js"></script>
+		<script>
+			$(function () {
+				var socket = io();
+				$('form').submit(function () {
+					var text = $('#m').val();
+					var data = {
+						message : text
+					};
+					socket.emit('message', data);
+					$('#m').val('');
+					return false;
+				});
+
+				socket.on('message', function (msg) {
+					var htm = '<div> ' +
+									'<div class="boxed-' + msg.className + '">' +
+										'<h6 class="heading"> ' + msg.author + ': </h6 >' +
+										'<p class="content">' + msg.text + '</p> ' +
+									'</div> ' +
+								'</div>';
+					$('#messages').append(htm);
+				});
+
+				socket.on('usernames', function (name) {
+					var htm = '<ul class="user-ul" data-value="' + name + '">' + name + '</ul>';
+					$('.custom-div').append(htm);
+				});
+			});
+		</script>
+	</body>
+</html>

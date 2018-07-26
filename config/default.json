@@ -1,0 +1,10 @@
+{
+    "port": 9000,
+    "httpPort": 9000,
+    "mongodbSettings": {
+      "url": "mongodb://username:password@host:port/dbName",
+      "dbName": "dbName",
+      "userCollection": "users",
+      "chatCollection": "messages"
+    }
+}

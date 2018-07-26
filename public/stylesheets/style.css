@@ -1,0 +1,110 @@
+body {
+    padding-top: 10px !important;
+    font: 13px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+    color: #00B7FF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.innerbox {
+    height: 300px;
+    overflow-y: auto;
+    border-radius: 10px;
+}
+
+.formbox {
+    min-height: 30px;
+    border-radius: 10px;
+
+}
+
+form {
+    padding: 3px;
+}
+
+form input {
+    border: 0;
+    padding: 10px;
+    width: 100%;
+    border-radius: 10px;
+    background: #fff;
+    margin: 5px;
+    height: 40px;
+}
+
+form button {
+    width: 100%;
+    background: #bfe7bf;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+ul {
+    margin-bottom: 0 !important;
+}
+
+.user-ul:nth-child(even) {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+}
+
+.user-ul:nth-child(odd) {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+}
+
+.user-ul:nth-last-child(1) {
+    border-bottom: 1px solid black;
+}
+
+.active, .user-ul:hover {
+    background-color: #666;
+    color: white;
+}
+
+.boxed-left {
+    max-width: 80%;
+    min-width: 20%;
+    float: left;
+    clear: both;
+    border: 1px solid #00B7FF;
+    margin: 5px;
+    border-radius: 10px;
+    overflow-wrap: break-word;
+}
+
+.boxed-right {
+    max-width: 80%;
+    min-width: 20%;
+    float: right;
+    clear:both;
+    border: 1px solid #00B7FF;
+    margin: 5px;
+    border-radius: 10px;
+    overflow-wrap: break-word;
+}
+
+.heading {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid lightseagreen;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+}
+
+.content {
+    padding-left: 5px;
+    padding-right: 5px;
+}
